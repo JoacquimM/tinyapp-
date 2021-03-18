@@ -12,15 +12,32 @@
   </head>
 
   <body>
+    <%- include('partials/_header')%>
     <div class="card text-center">
       <div class="card-header"></div>
       <div class="card-body">
+        <% { %>
         <h5 class="card-title">TinyURL for: <%= longURL %></h5>
+        <% } %>
         <p class="card-text">
           Short URL: <a href="/u/<%= shortURL %>"><%= shortURL %></a>
         </p>
       </div>
-      <div class="card-footer text-muted"></div>
+      <div class="card-footer text-muted">
+        <h5 class="card-title">Edit</h5>
+        <form action="/urls/<%= shortURL %>" method="POST">
+          <label for="team_name">New URL: </label>
+          <% { %>
+          <input
+            id="team_name"
+            type="text"
+            name="name_field"
+            placeholder="update url"
+          />
+          <% } %>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </div>
     <!-- Bootstrap JS -->
     <script

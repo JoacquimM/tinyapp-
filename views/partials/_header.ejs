@@ -14,66 +14,43 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div
+      class="collapse navbar-collapse"
+      id="navbarNavAltMarkup"
+      style="justify-content: space-between"
+    >
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="/urls">My URLs</a>
         <a class="nav-item nav-link" href="/urls/new">Create New URL</a>
       </div>
-      <div>
-      </div>
-    </div>
-    
-    <% if ( !email ){ %>
-        <!-- <form class="form-inline" action="/login" method="POST">
-          <div class="form-group mb-2">
-            <label for="longURL"></label>
-            <input
-              class="form-control"
-              type="text"
-              name="longURL"
-              placeholder="Username"
-              style="width: 200px; margin: 1em"
-            />
-            <button type="submit" class="btn btn-primary">Login</button>
-          </div>
-        </form> -->
-      
-          <div class="form-group mb-2">
-            <label for="longURL"></label>
-            <a href="/register"><button type="submit">Register</button></a>
-            <a href="/login"><button type="submit">Login</button></a>         
-           </div>
-        
-        <!-- <form class="form-inline" action="/login" method="POST">
-          <div class="form-group mb-2">
-            <label for="longURL"></label>
-            <input
-              class="form-control"
-              type="text"
-              name="longURL"
-              placeholder="Username"
-              style="width: 200px; margin: 1em"
-            />
-            <button type="submit" class="btn btn-primary">Login</button>
-          </div>
-        </form> -->
-        <% } else { %>
-          <div>
-            Logged in as: 
-          </div>
-           <div> <%= email %>  </div>
-           <div>
+      <% if ( !email ){ %>
 
-           </div>
-           <div>
-
-          </div>
-            <form action = "/logout" method= "POST">
-              <button type= "submit" class="btn btn-primary"> Logout</button>
-            </form>
-          
-          <% } %>
+      <div
+        class="navbar-nav nav-item"
+        style="justify-content: end; align-items: center"
+      >
+        <label for="longURL"></label>
+        <a class="nav-item nav-link" href="/register"
+          ><button type="submit">Register</button></a
+        >
+        <a class="nav-item nav-link" href="/login"
+          ><button type="submit">Login</button></a
+        >
       </div>
+
+      <% } else { %>
+      <div>Logged in as: <%= email %></div>
+
+      <!-- <div><%= email %></div> -->
+
+      <form action="/logout" method="POST">
+        <button type="submit" class="btn btn-primary">Logout</button>
+      </form>
+
+      <% } %>
     </div>
+
+    <!-- </div>
+    </div> -->
   </nav>
 </header>
